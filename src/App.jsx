@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Analytics } from "@vercel/analytics/react";
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -57,6 +58,7 @@ function App() {
         <div className="grain-overlay"></div>
         <ScrollToTop />
         <RevealObserver />
+        <Analytics />
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} />
