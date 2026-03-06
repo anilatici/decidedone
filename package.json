@@ -2,15 +2,13 @@
   "name": "website",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://anilatici.github.io/decidedone/",
+  "homepage": "https://decided.one/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "dependencies": {
     "chart.js": "^4.5.1",
