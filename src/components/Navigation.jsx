@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const prevLocationRef = useRef(location);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,8 +16,13 @@ const Navigation = () => {
   }, []);
 
   useEffect(() => {
-    setMobileMenuOpen(false);
-    window.scrollTo(0, 0);
+    // Close mobile menu and scroll to top on navigation
+    if (prevLocationRef.current !== location) {
+      prevLocationRef.current = location;
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setMobileMenuOpen(false);
+      window.scrollTo(0, 0);
+    }
   }, [location]);
 
   const navLinks = [
