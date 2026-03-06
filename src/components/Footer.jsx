@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 const Footer = () => {
   return (
@@ -6,8 +7,8 @@ const Footer = () => {
       <div className="container footer-inner">
         <div className="footer-top">
           <div className="footer-brand">
-            <Link to="/" className="brand bebas">
-              decided<span>.</span>
+            <Link to="/" className="brand">
+              <Logo size={24} />
             </Link>
             <p className="tagline">One answer. One step.</p>
           </div>

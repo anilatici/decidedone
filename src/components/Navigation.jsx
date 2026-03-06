@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import Logo from './Logo';
 
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,8 +30,8 @@ const Navigation = () => {
   return (
     <nav className={`fixed-top ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
-        <Link to="/" className="brand bebas">
-          decided<span>.</span>
+        <Link to="/" className="brand">
+          <Logo size={28} />
         </Link>
 
         {/* Desktop Nav */}

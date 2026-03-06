@@ -185,13 +185,9 @@ section {
 }
 
 .brand {
-  font-size: 28px;
-  color: var(--text-primary);
-  letter-spacing: -0.5px;
-}
-
-.brand span {
-  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .nav-links {
