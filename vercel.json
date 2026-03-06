@@ -1,0 +1,26 @@
+{
+    "redirects": [
+        {
+            "source": "/(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "decidedone.vercel.app"
+                }
+            ],
+            "destination": "https://www.decided.one/$1",
+            "permanent": true
+        },
+        {
+            "source": "/(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "decided.one"
+                }
+            ],
+            "destination": "https://www.decided.one/$1",
+            "permanent": true
+        }
+    ]
+}
