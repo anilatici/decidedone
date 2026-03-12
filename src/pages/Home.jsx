@@ -27,6 +27,20 @@ ChartJS.register(
 );
 
 const Home = () => {
+  const handleTryWebClick = (event) => {
+    event.preventDefault();
+
+    const link = event.currentTarget;
+    const href = link.href;
+
+    link.style.transform = 'scale(0.97)';
+
+    window.setTimeout(() => {
+      link.style.transform = '';
+      window.open(href, '_blank', 'noopener,noreferrer');
+    }, 150);
+  };
+
   // Chart 1: Parole Board
   const paroleData = {
     labels: ["1st case", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th+"],
@@ -159,6 +173,111 @@ const Home = () => {
           </div>
         </div>
         <div className="scroll-indicator"><span className="chevron"></span></div>
+      </section>
+
+      {/* Section 0.5 — Try on Web */}
+      <section className="try-web" id="try-web">
+        <div className="container">
+          <div className="try-web-grid">
+            <div className="try-web-copy reveal">
+              <p className="try-web-eyebrow mono">NO DOWNLOAD REQUIRED</p>
+              {/*
+              Variant B:
+              <p className="try-web-eyebrow mono">AVAILABLE IN YOUR BROWSER</p>
+              */}
+
+              <h2 className="try-web-headline">
+                Try Decided
+                <span>right now.</span>
+              </h2>
+              {/*
+              Variant B:
+              <h2 className="try-web-headline">
+                Your first decision
+                <span>is 30 seconds away.</span>
+              </h2>
+              */}
+
+              <p className="try-web-body">
+                The full Decided experience — instant decisions, Autopilot Day,
+                and preference learning — available in your browser. No app
+                store. No install. Just open and decide.
+              </p>
+              {/*
+              Variant B:
+              <p className="try-web-body">
+                The full Decided experience lives at app.decided.one. Open it
+                now and make your first decision for free.
+              </p>
+              */}
+
+              <div className="try-web-actions">
+                <a
+                  href="https://app.decided.one"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="try-web-cta"
+                  onClick={handleTryWebClick}
+                >
+                  Open Web App <span aria-hidden="true">→</span>
+                </a>
+                {/*
+                Variant B:
+                <a
+                  href="https://app.decided.one"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="try-web-cta"
+                  onClick={handleTryWebClick}
+                >
+                  Start Deciding <span aria-hidden="true">→</span>
+                </a>
+                */}
+
+                <p className="try-web-sublabel">
+                  Free to start · Works on any browser · Syncs with mobile
+                </p>
+              </div>
+            </div>
+
+            <div className="try-web-visual-wrap reveal" aria-hidden="true">
+              <div className="try-web-browser">
+                <div className="try-web-browser-chrome">
+                  <div className="try-web-browser-dots">
+                    <span></span>
+                    <span className="is-large"></span>
+                    <span></span>
+                  </div>
+                  <div className="try-web-url mono">app.decided.one</div>
+                  <div className="try-web-bolt">⚡</div>
+                </div>
+
+                <div className="try-web-browser-body">
+                  <div className="try-web-app-bar bebas">DECIDED.</div>
+                  <div className="try-web-preview-card">
+                    <p className="try-web-preview-kicker mono">⚡ DECIDED</p>
+                    <h3 className="bebas">HIT THE GYM</h3>
+                    <div className="try-web-preview-divider"></div>
+                    <div className="try-web-placeholder-lines">
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <p className="try-web-preview-next mono">YOUR NEXT STEP →</p>
+                    <p className="try-web-preview-action mono">
+                      Pack your bag and leave by 6:10 PM.
+                    </p>
+                    <div className="try-web-progress-block">
+                      <div className="try-web-progress-track">
+                        <span></span>
+                      </div>
+                      <p className="try-web-progress-label mono">87% match</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Problem */}
@@ -306,7 +425,20 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 1.6 — Testimonials */}
+      {/* Section 1.7 — CTA */}
+      <section className="download-cta reveal">
+        <div className="container">
+          <h2 className="bebas">STOP OVERTHINKING.</h2>
+          <p>Download Decided. Make your first decision in 30 seconds.</p>
+          <div className="btn-group">
+            <button className="btn-pill">↓ App Store</button>
+            <button className="btn-pill">↓ Google Play</button>
+          </div>
+          <p style={{ marginTop: '32px', fontSize: '13px', opacity: 0.6 }}>Free to start. No account required.</p>
+        </div>
+      </section>
+
+      {/* Section 1.8 — Testimonials */}
       <section className="testimonials">
         <div className="container">
           <div className="section-header">
@@ -327,19 +459,6 @@ const Home = () => {
               <p className="testimonial-author">— Priya N., Software Engineer</p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Section 1.7 — CTA */}
-      <section className="download-cta reveal">
-        <div className="container">
-          <h2 className="bebas">STOP OVERTHINKING.</h2>
-          <p>Download Decided. Make your first decision in 30 seconds.</p>
-          <div className="btn-group">
-            <button className="btn-pill">↓ App Store</button>
-            <button className="btn-pill">↓ Google Play</button>
-          </div>
-          <p style={{ marginTop: '32px', fontSize: '13px', opacity: 0.6 }}>Free to start. No account required.</p>
         </div>
       </section>
     </main>
