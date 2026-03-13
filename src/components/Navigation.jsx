@@ -16,9 +16,10 @@ const Navigation = () => {
   }, []);
 
   useEffect(() => {
-    setMobileMenuOpen(false);
     window.scrollTo(0, 0);
   }, [location]);
+
+  const isLegalPage = location.pathname === '/terms' || location.pathname === '/privacy';
 
   const navLinks = [
     { name: 'The Problem', path: '/#problem' },
@@ -30,24 +31,32 @@ const Navigation = () => {
   return (
     <nav className={`fixed-top ${scrolled ? 'scrolled' : ''}`}>
       <div className="container nav-inner">
-        <Link to="/" className="brand">
+        <Link to="/" className="brand" onClick={() => setMobileMenuOpen(false)}>
           <Logo size={28} />
         </Link>
 
         {/* Desktop Nav */}
         <div className="nav-links">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={location.pathname === link.path ? 'active' : ''}
-            >
-              {link.name}
+          {isLegalPage ? (
+            <Link to="/" className="btn-pill btn-ghost-accent nav-legal-link">
+              Back to Home
             </Link>
-          ))}
-          <button className="btn-pill btn-accent">
-            Get Early Access →
-          </button>
+          ) : (
+            <>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={location.pathname === link.path ? 'active' : ''}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <button className="btn-pill btn-accent">
+                Get Early Access →
+              </button>
+            </>
+          )}
         </div>
 
         {/* Mobile Toggle */}
@@ -65,21 +74,29 @@ const Navigation = () => {
       {/* Mobile Menu Overlay */}
       <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-links">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {link.name}
+          {isLegalPage ? (
+            <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+              Back to Home
             </Link>
-          ))}
-          <button
-            className="btn-pill btn-accent"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            Get Early Access →
-          </button>
+          ) : (
+            <>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              <button
+                className="btn-pill btn-accent"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Get Early Access →
+              </button>
+            </>
+          )}
         </div>
       </div>
 

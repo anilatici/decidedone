@@ -8,6 +8,8 @@ import Home from './pages/Home';
 import Science from './pages/Science';
 import HowItWorks from './pages/HowItWorks';
 import About from './pages/About';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -67,6 +69,8 @@ function App() {
           <Route path="/science" element={<Science />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           <Route path="/about" element={<About />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
         </Routes>
         <Footer />
       </div>

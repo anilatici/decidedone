@@ -1,7 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
 const Footer = () => {
+  const location = useLocation();
+  const isLegalPage = location.pathname === '/terms' || location.pathname === '/privacy';
+
   return (
     <footer className="footer">
       <div className="container footer-inner">
@@ -23,8 +26,8 @@ const Footer = () => {
             <div className="link-group">
               <h4>Company</h4>
               <Link to="/about">About Us</Link>
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Service</a>
+              <Link to="/privacy">Privacy Policy</Link>
+              <Link to="/terms">Terms of Service</Link>
             </div>
             <div className="link-group">
               <h4>Social</h4>
@@ -39,8 +42,15 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p className="copyright">
-            © 2025 Decided. Built to reduce cognitive load, not add to it.
+            © 2026 Decided. Built to reduce cognitive load, not add to it.
           </p>
+          <div className="footer-legal-links mono">
+            <Link to="/terms">Terms</Link>
+            <span>·</span>
+            <Link to="/privacy">Privacy</Link>
+            <span>·</span>
+            <a href="https://decided.one/contact" target="_blank" rel="noreferrer">Contact</a>
+          </div>
           <div className="citation-strip mono">
             <span>Danziger et al. (2011), PNAS</span>
             <span>Sollisch (2016) cited in PMC/NCBI</span>
@@ -51,6 +61,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      {isLegalPage && (
+        <div className="legal-review-banner mono">
+          These documents were last reviewed on March 13, 2026. Decided recommends consulting a qualified legal professional for advice specific to your situation.
+        </div>
+      )}
     </footer>
   );
 };
