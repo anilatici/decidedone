@@ -26,6 +26,7 @@ const Footer = () => {
             <div className="link-group">
               <h4>Company</h4>
               <Link to="/about">About Us</Link>
+              <Link to="/support">Support</Link>
               <Link to="/privacy">Privacy Policy</Link>
               <Link to="/terms">Terms of Service</Link>
             </div>
@@ -49,7 +50,7 @@ const Footer = () => {
             <span>·</span>
             <Link to="/privacy">Privacy</Link>
             <span>·</span>
-            <a href="https://decided.one/contact" target="_blank" rel="noreferrer">Contact</a>
+            <Link to="/support">Support</Link>
           </div>
           <div className="citation-strip mono">
             <span>Danziger et al. (2011), PNAS</span>
