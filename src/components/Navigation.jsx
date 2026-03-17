@@ -52,9 +52,6 @@ const Navigation = () => {
                   {link.name}
                 </Link>
               ))}
-              <button className="btn-pill btn-accent">
-                Get Early Access →
-              </button>
             </>
           )}
         </div>
@@ -89,12 +86,6 @@ const Navigation = () => {
                   {link.name}
                 </Link>
               ))}
-              <button
-                className="btn-pill btn-accent"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Get Early Access →
-              </button>
             </>
           )}
         </div>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,6 +13,7 @@ import {
   Filler
 } from 'chart.js';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
+import ComingSoonDialog from '../components/ComingSoonDialog';
 
 ChartJS.register(
   CategoryScale,
@@ -27,6 +29,8 @@ ChartJS.register(
 );
 
 const Home = () => {
+  const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
+
   const handleTryWebClick = (event) => {
     event.preventDefault();
 
@@ -163,8 +167,13 @@ const Home = () => {
           <h1 className="hero-headline reveal">Stop<br /><span>deciding.</span><br />Start<br />doing.</h1>
           <p className="hero-subheadline reveal">Decided is an AI assistant that turns everyday decisions into instant, clear actions — so your mental energy goes where it matters.</p>
           <div className="hero-cta reveal">
-            <button className="btn-pill btn-accent">Download for iOS</button>
-            <button className="btn-pill btn-dark">Download for Android</button>
+            <button
+              type="button"
+              className="btn-pill btn-accent"
+              onClick={() => setIsComingSoonOpen(true)}
+            >
+              Download for iOS
+            </button>
           </div>
           <div className="hero-stats reveal">
             <div className="stat-item mono">⚡ &lt; 30 sec avg. decision time</div>
@@ -431,8 +440,13 @@ const Home = () => {
           <h2 className="bebas">STOP OVERTHINKING.</h2>
           <p>Download Decided. Make your first decision in 30 seconds.</p>
           <div className="btn-group">
-            <button className="btn-pill">↓ App Store</button>
-            <button className="btn-pill">↓ Google Play</button>
+            <button
+              type="button"
+              className="btn-pill"
+              onClick={() => setIsComingSoonOpen(true)}
+            >
+              Download for iOS
+            </button>
           </div>
           <p style={{ marginTop: '32px', fontSize: '13px', opacity: 0.6 }}>Free to start. No account required.</p>
         </div>
@@ -461,6 +475,10 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <ComingSoonDialog
+        isOpen={isComingSoonOpen}
+        onClose={() => setIsComingSoonOpen(false)}
+      />
     </main>
   );
 };

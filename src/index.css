@@ -1728,6 +1728,101 @@ section {
   color: var(--text-primary);
 }
 
+.coming-soon-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top, rgba(201, 242, 49, 0.14), transparent 38%),
+    rgba(8, 8, 8, 0.8);
+  backdrop-filter: blur(18px);
+}
+
+.coming-soon-dialog {
+  position: relative;
+  width: min(100%, 520px);
+  padding: 32px;
+  border: 1px solid rgba(201, 242, 49, 0.2);
+  border-radius: 28px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015)),
+    rgba(17, 17, 17, 0.96);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  text-align: left;
+}
+
+.coming-soon-dialog::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: 27px;
+  background: linear-gradient(180deg, rgba(201, 242, 49, 0.08), transparent 35%);
+  pointer-events: none;
+}
+
+.coming-soon-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-lit);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.coming-soon-badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  margin-bottom: 18px;
+  padding: 8px 12px;
+  border: 1px solid rgba(201, 242, 49, 0.18);
+  border-radius: 9999px;
+  background: rgba(201, 242, 49, 0.08);
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+}
+
+.coming-soon-title {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(40px, 7vw, 56px);
+  line-height: 0.95;
+  margin-bottom: 16px;
+}
+
+.coming-soon-description {
+  position: relative;
+  z-index: 1;
+  max-width: 34ch;
+  color: var(--text-secondary);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.coming-soon-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
 @media (max-width: 768px) {
   .feature-row {
     grid-template-columns: 1fr !important;
@@ -1789,6 +1884,24 @@ section {
 
   .btn-group .btn-pill {
     width: 100%;
+  }
+
+  .coming-soon-dialog {
+    padding: 28px 20px 20px;
+    border-radius: 24px;
+  }
+
+  .coming-soon-dialog::before {
+    border-radius: 23px;
+  }
+
+  .coming-soon-actions {
+    flex-direction: column;
+  }
+
+  .coming-soon-actions .btn-pill {
+    width: 100%;
+    justify-content: center;
   }
 }
 

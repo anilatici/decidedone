@@ -1,4 +1,9 @@
+import { useState } from 'react';
+import ComingSoonDialog from '../components/ComingSoonDialog';
+
 const About = () => {
+    const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
+
     return (
         <main className="about container">
             <section className="about-hero reveal">
@@ -57,9 +62,19 @@ const About = () => {
                 <h2 className="bebas">JOIN THE MOVEMENT.</h2>
                 <p>Stop choosing. Start living. Decided is free to start.</p>
                 <div className="btn-group">
-                    <button className="btn-pill btn-accent">Download for iOS →</button>
+                    <button
+                        type="button"
+                        className="btn-pill btn-accent"
+                        onClick={() => setIsComingSoonOpen(true)}
+                    >
+                        Download for iOS →
+                    </button>
                 </div>
             </section>
+            <ComingSoonDialog
+                isOpen={isComingSoonOpen}
+                onClose={() => setIsComingSoonOpen(false)}
+            />
         </main>
     );
 };
