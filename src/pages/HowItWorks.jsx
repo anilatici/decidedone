@@ -135,7 +135,14 @@ const HowItWorks = () => {
                 <h2 className="bebas">READY FOR AUTOPILOT?</h2>
                 <p>The first decision is yours: Download and start doing.</p>
                 <div className="btn-group">
-                    <button className="btn-pill btn-accent">Get Decided Now</button>
+                    <a
+                        href="https://apps.apple.com/au/app/decided-ai-decision-maker/id6760539321"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-pill btn-accent"
+                    >
+                        Get Decided Now
+                    </a>
                 </div>
             </section>
         </main>

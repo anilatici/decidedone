@@ -161,7 +161,14 @@ const Science = () => {
                 <h2 className="bebas">LET AI CARRY THE COGNITIVE LOAD.</h2>
                 <p>Decided does for your daily choices what these leaders did manually — removes the small decisions so you can show up fully for the big ones.</p>
                 <div className="btn-group">
-                    <button className="btn-pill btn-accent">Download Decided →</button>
+                    <a
+                        href="https://apps.apple.com/au/app/decided-ai-decision-maker/id6760539321"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-pill btn-accent"
+                    >
+                        Download Decided →
+                    </a>
                 </div>
             </section>
         </main>

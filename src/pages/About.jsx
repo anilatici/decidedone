@@ -1,8 +1,6 @@
-import { useState } from 'react';
-import ComingSoonDialog from '../components/ComingSoonDialog';
+
 
 const About = () => {
-    const [isComingSoonOpen, setIsComingSoonOpen] = useState(false);
 
     return (
         <main className="about container">
@@ -62,19 +60,17 @@ const About = () => {
                 <h2 className="bebas">JOIN THE MOVEMENT.</h2>
                 <p>Stop choosing. Start living. Decided is free to start.</p>
                 <div className="btn-group">
-                    <button
-                        type="button"
+                    <a
+                        href="https://apps.apple.com/au/app/decided-ai-decision-maker/id6760539321"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="btn-pill btn-accent"
-                        onClick={() => setIsComingSoonOpen(true)}
                     >
                         Download for iOS →
-                    </button>
+                    </a>
                 </div>
             </section>
-            <ComingSoonDialog
-                isOpen={isComingSoonOpen}
-                onClose={() => setIsComingSoonOpen(false)}
-            />
+
         </main>
     );
 };
